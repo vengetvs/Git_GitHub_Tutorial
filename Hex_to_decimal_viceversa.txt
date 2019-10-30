@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+#define DECIMALTOBINARY 2
+#define DECIMALTOHEX    16 
+#define DECIMALTOOCTAL   8
+
+int baseval,y;
+
+baseval = DECIMALTOHEX;
+
+int length(int x){
+    
+    
+    while(x!=0){
+        x=x/10;
+        y++;
+    }
+    return y;
+}
+
+int dec2bin(int x,int y){
+    
+    int z= 4*y;
+    
+    int i,j=0;
+    
+    int array2store[z];
+    
+    while (x>0){
+        array2store[i] = x%baseval;
+        x=x/baseval;
+        i++;
+    }
+
+if (baseval!=DECIMALTOHEX)
+ {
+     
+ for(j=i-1;j>=0;j--){
+    printf("%d",array2store[j]);
+    i--;
+ }
+ }else{
+     
+   for(j=i-1;j>=0;j--){
+       if(array2store[j]<10)
+       {
+           array2store[j] = array2store[j] + 48;
+        
+       }else{
+           array2store[j] = array2store[j] + 55;
+       }
+       
+       printf("%c",array2store[j]);
+       i--;  
+     
+ }    
+  
+    
+}
+}
+int main() {
+    int x = 8989;
+    printf("length of x is %d",length(x));
+    printf("\r\n decimal to base conversion ");
+    dec2bin(x,y);
+    return 0;
+}
